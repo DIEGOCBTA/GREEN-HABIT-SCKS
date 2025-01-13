@@ -1,0 +1,71 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  /* Asegura que las imágenes y videos se adapten al contenedor */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Contenedores flexibles */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* Manejo de columnas */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+  }
+  
+  .col {
+    flex: 1 1 100%; /* Por defecto ocupa todo el ancho */
+    padding: 10px;
+  }
+  
+  /* Media Queries para dispositivos más grandes */
+  @media (min-width: 768px) {
+    .col {
+      flex: 1 1 50%; /* En pantallas medianas ocupa la mitad */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .col {
+      flex: 1 1 33.33%; /* En pantallas grandes ocupa un tercio */
+    }
+  }
+  
+  /* Botones y enlaces responsivos */
+  button, a {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Ajustes de tipografía */
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  

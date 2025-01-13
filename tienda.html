@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link rel="icon" href="image-removebg-preview (4).ico" type=image/x-icon>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Tienda - Snacks Saludables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="SCRIPT.JS">
+
+    <style>
+        /* Fondo de video */
+       
+
+        video.background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Poner el video detrás del contenido */
+        }
+
+       
+
+       
+
+        .product-section {
+            padding: 50px 20px;
+            text-align: center;
+           margin: 20px;
+        }
+
+       
+
+        .product-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #000000, #1d3814);
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .product-card p {
+            font-size: 1.2rem;
+            color: #d07d2f;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            background-color: #007a33;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: #006a2e;
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            color: #2d6a4f;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #ff9f00;
+        }
+
+        .modal button {
+            background-color: #007a33;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #006a2e;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .loading {
+            font-size: 1.5rem;
+            color: #ff9f00;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background-color: #76b041;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
+
+<header>
+    <!-- Logo alineado a la izquierda -->
+    <div class="logo">
+        <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+    </div>
+
+    <!-- Botón del menú hamburguesa -->
+    <div class="hamburger" id="hamburger">
+        &#9776; <!-- Tres rayitas -->
+    </div>
+    
+    <!-- Lista del menú (opciones) -->
+    <ul class="nav-list" id="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="about.html">Sobre Nosotros</a></li>
+        <li><a href="services.html">Servicios</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="#" id="translate-button">Traducir</a></li>
+    </ul>
+
+    <!-- Imagen de perfil alineada a la derecha -->
+    <div class="profile">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3VpbWk5eHQ1M3lhdmM4bmYycWwxb3c1cTg4OWhiZWN0eTh4ZXYxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NjM3710BYY2Btttu2d/giphy.gif" alt="Imagen de perfil">
+    </div>
+</header>
+
+<!-- Contenedor para Google Translate (visible) -->
+<center> <div id="google_translate_element"></div></center>
+
+<!-- Script de Google Translate -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es', // Idioma original de la página
+            includedLanguages: 'en,es', // Idiomas disponibles para traducir
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+
+    // Cargar el script de Google Translate solo cuando el botón "Traducir" es presionado
+    document.getElementById('translate-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+        var script = document.createElement('script');
+        script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        document.head.appendChild(script);
+    });
+</script>
+
+
+</head>
+<body>
+
+    <video class="background-video" autoplay muted loop>
+        <source src="https://i.imgur.com/ASTBnVV.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+
+    <center> <div class="title-container"><h2 class="text-gradient" > Productos Destacados</h2></div></center>
+    <div class="product-section">
+       
+      
+        <br>
+        <div class="product-cards">
+            <div class="product-card">
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzhiMzRrZXVxdm42NW94aHZ2Y2hxYTI0d3NpdmswbWxqb2Z6eDdscyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/YjOTgpOBfP7AylmW9D/giphy.gif" alt="Producto 1">
+                <h3>SNACK SALUDABLE A</h3>
+                <p>$15.00</p>
+                <button class="buy-button" onclick="openModal('SNACK SALUDABLE A', 3.99)">Comprar</button>
+            </div>
+            <div class="product-card">
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmo4dHA0MHJ3dmYybTZpZGJzMGM3ZXAzYmt6Y2V2YmkzaXduMTFqMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QIcUYwYKjyCd3Z8fXT/giphy.gif" alt="Producto 2">
+                <h3>SNACK SALUDABLE B</h3>
+                <p>$15.00</p>
+                <button class="buy-button" onclick="openModal('SNACK SALUDABLE B', 2.99)">Comprar</button>
+            </div>
+            <div class="product-card">
+                <img src="https://media1.giphy.com/media/M5zqv1C3lsjpgPgDae/200w.webp" alt="Producto 3">
+                <h3>PROXIMAMENTE</h3>
+                <p class="loading">Este producto aún no está disponible.</p>
+                <button class="buy-button" onclick="showUnavailable()">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de éxito -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>¡Gracias por tu compra!</h2>
+            <p id="modal-product"></p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="cart-icon">
+        <span class="cart-text">🛒</span>
+    </div>
+
+    <script>
+        function openModal(product, price) {
+            const modal = document.getElementById('modal');
+            const modalProduct = document.getElementById('modal-product');
+            modalProduct.textContent = `Has comprado ${product} por $${price}`;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        function showUnavailable() {
+            alert("Este producto aún no está disponible. ¡Pronto estará disponible!");
+        }
+    </script>
+   <!-- Promoción de Verano -->
+<div id="promoModal" class="promo-modal">
+    <div class="promo-modal-content">
+        <h1>¡Promoción de Verano!</h1>
+        <p>Compra 2x25 y recibe una salsa de la casa totalmente gratis. ¡No te lo pierdas!</p>
+    </div>
+</div>
+
+<!-- Confeti -->
+<div id="confetti"></div>
+
+<style>
+    /* Estilo de la ventana modal */
+    .promo-modal {
+        display: none; /* Inicialmente está oculta */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 80%;
+        max-width: 600px;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        animation: popUp 1s ease-out forwards; /* Nueva animación de entrada */
+    }
+
+    /* Animación de entrada (Aparece como un "pop") */
+    @keyframes popUp {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Estilo del contenido dentro de la ventana modal */
+    .promo-modal-content {
+        background: linear-gradient(135deg, rgba(255, 140, 0, 0.9), rgba(255, 204, 0, 0.9));
+        padding: 30px;
+        border-radius: 10px;
+        color: #fff;
+    }
+
+    .promo-modal h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .promo-modal p {
+        font-size: 1.2rem;
+    }
+
+    /* Estilo del confeti */
+    #confetti {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .confetti-piece {
+        position: absolute;
+        background-color: #ff0;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        animation: confettiFall 1.5s ease-in-out infinite;
+    }
+
+    @keyframes confettiFall {
+        0% {
+            transform: translateY(-100px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* Animación de desintegración (para cerrar la ventana) */
+    @keyframes vanish {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0);
+            opacity: 0;
+        }
+    }
+    .menu-button {
+    
+    color: white; /* Color de texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.logo img {
+    height: 50px;
+}
+
+.nav-list {
+    display: none; /* Ocultar menú por defecto en pantallas pequeñas */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #152511;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+ 
+}
+
+.nav-list li {
+    margin: 10px 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+}
+
+.profile img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Estilo del botón hamburguesa */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Adaptación para pantallas grandes */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Ocultar botón hamburguesa */
+    }
+    .nav-list {
+        display: flex; /* Mostrar menú horizontal en pantallas grandes */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+    }
+    .nav-list li {
+        margin: 0 10px;
+    }
+}
+
+
+img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el tamaño de su contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+</style>
+
+<script>
+    // Mostrar el modal cuando se carga la página
+    window.onload = function() {
+        // Mostrar la ventana modal
+        var promoModal = document.getElementById("promoModal");
+        promoModal.style.display = "block";
+
+        // Crear el confeti
+        createConfetti();
+
+        // Hacer que el modal desaparezca con animación
+        setTimeout(function() {
+            // Aplicar la animación de desintegración para desaparecer sin moverse
+            promoModal.style.animation = "vanish 1s ease forwards";
+            setTimeout(function() {
+                promoModal.style.display = "none"; // El modal se oculta después de la animación
+            }, 1000); // Tiempo para que termine la animación de desaparición
+        }, 3000); // Después de 3 segundos
+
+        // Eliminar el confeti después de 5 segundos
+        setTimeout(function() {
+            document.getElementById("confetti").innerHTML = ""; // Vaciar el contenedor de confeti
+        }, 5000); // Después de 5 segundos, se elimina el confeti
+    };
+
+    // Función para crear confeti
+    function createConfetti() {
+        const confettiContainer = document.getElementById("confetti");
+
+        // Generar 100 piezas de confeti
+        for (let i = 0; i < 100; i++) {
+            const confettiPiece = document.createElement("div");
+            confettiPiece.classList.add("confetti-piece");
+
+            // Posicionar aleatoriamente cada pieza de confeti
+            confettiPiece.style.left = `${Math.random() * 100}vw`;
+            confettiPiece.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración aleatoria de caída
+            confettiPiece.style.animationDelay = `${Math.random() * 2}s`; // Retraso aleatorio en la caída
+
+            confettiContainer.appendChild(confettiPiece);
+        }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    const navLinks = document.querySelectorAll('.nav-list a'); // Seleccionar los enlaces del menú
+
+    // Función para manejar el menú dependiendo del tamaño de la pantalla
+    const handleMenuDisplay = () => {
+        if (window.innerWidth >= 768) {
+            navList.style.display = 'flex'; // Mostrar menú en pantallas grandes
+        } else {
+            navList.style.display = 'none'; // Ocultar menú en pantallas pequeñas
+        }
+    };
+
+    // Inicializar el estado del menú al cargar la página
+    handleMenuDisplay();
+
+    // Mostrar/ocultar menú al hacer clic en el botón hamburguesa
+    hamburger.addEventListener('click', () => {
+        const isMenuVisible = navList.style.display === 'flex';
+        navList.style.display = isMenuVisible ? 'none' : 'flex';
+    });
+
+    // Cerrar menú al redimensionar pantalla
+    window.addEventListener('resize', handleMenuDisplay);
+});
+
+
+</script>
+
+   <footer>
+    <p>&copy; 2025 GREEN HABIT. Todos los derechos reservados.</p>
+    <p>Publicado por Diego Ruiz</p>
+    <div class="social-media">
+      <center>
+<a href="https://www.facebook.com" target="_blank">
+    <img src="https://i.imgur.com/98Z0T1I.png" alt="Facebook" width="24" height="24">
+</a>
+<a href="https://www.instagram.com/_.greenhabit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="24" height="24">
+</a>
+
+</center>
+    </div>
+    <div class="logo">
+        <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+    </div>
+</footer>
+</body>
+</html>

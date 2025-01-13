@@ -1,0 +1,588 @@
+/* Estilo básico para el selector de idioma */
+#google_translate_element {
+    font-family: Arial, sans-serif;
+    display: inline-block; /* Se coloca en línea con el contenido */
+    position: relative;
+    z-index: 1000;
+}
+
+/* Estilo del desplegable (estilo limpio y elegante) */
+.goog-te-gadget-simple {
+    
+    color: #333; /* Texto oscuro */
+    border: 2px solid #4CAF50; /* Borde verde */
+    border-radius: 30px; /* Bordes redondeados */
+    padding: 5px 15px; /* Espaciado */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+.goog-te-gadget-simple:hover {
+    background-color: #4CAF50; /* Fondo verde al pasar el mouse */
+    color: rgb(245, 223, 23); /* Texto blanco */
+    border-color: #45a049; /* Borde verde más oscuro */
+}
+
+/* Estilo para el select dentro del widget */
+.goog-te-gadget-simple select {
+    background-color: transparent;
+    color: #333; /* Texto oscuro */
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 30px; /* Bordes redondeados del select */
+    outline: none; /* Sin contorno al seleccionar */
+}
+
+/* Estilo del contenedor de idiomas (más limpio) */
+.goog-te-gadget-simple select:focus {
+    border-color: #45a049; /* Borde verde cuando está seleccionado */
+}
+/* Estilo común para los botones del menú */
+.menu-button {
+    
+    color: white; /* Color de texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos base del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-list {
+    display: none; /* Ocultar menú por defecto en pantallas pequeñas */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #152511;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    color: #ddd;
+}
+
+.nav-list li {
+    margin: 10px 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+}
+
+.profile img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Estilo del botón hamburguesa */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Adaptación para pantallas grandes */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Ocultar botón hamburguesa */
+    }
+    .nav-list {
+        display: flex; /* Mostrar menú horizontal en pantallas grandes */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+    }
+    .nav-list li {
+        margin: 0 10px;
+    }
+}
+
+
+img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el tamaño de su contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+body {
+    font-family: "Outfit", serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #d8b829;
+    background-color: #d8b829;
+    color: #ffffff;
+    margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Estilos generales para el header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #152511;
+    width: 100%;
+}
+.profile img {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 50PX;
+}
+.logo img {
+    height: 100px;
+    margin-left: 20px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-list li {
+    margin-right: 30px;
+}
+
+.nav-list li a:hover {
+    color: #9dbd6b;
+    padding-bottom: 6px;
+}
+
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #9dbd6b;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav-list li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, padding-bottom 0.3s ease;
+}
+
+/* Estilo para la animación */
+.hero {
+    background-image: url('images/hero.jpg');
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-button {
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border: orange;
+    cursor: pointer;
+    align-items: center;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    gap: 0px;
+    text-align: center;
+    align-self: center;
+}
+
+.feature img {
+    width: 180px;
+    height: 200px;
+    object-fit: cover;
+    
+}
+
+footer {
+    background-color: #152511;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Animación de las palabras */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes quickChange {
+    0% {
+        color: #fff;
+    }
+    25% {
+        color: #acfc51; /* Color verde oliva claro */
+    }
+    50% {
+        color: #fff;
+    }
+    75% {
+        color: #acfc51;
+    }
+    100% {
+        color: #fff;
+    }
+}
+
+@keyframes endBlink {
+    0% {
+        color: #fff;
+    }
+    10% {
+        color: #acfc51;
+    }
+    50% {
+        color: #acfc51;
+    }
+    100% {
+        color: #acfc51;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para la frase "Nosotros somos la solución" */
+.solution-text {
+    font-size: 3rem; /* Tamaño grande */
+    text-align: center;
+    margin-top: 40px;
+    color: #fff;
+    animation: slideIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Estilo para el texto de la animación */
+.hero-text h1 {
+    font-size: 6rem; /* Tamaño base para pantallas grandes */
+    text-align: center;
+    margin: 0; /* Asegurar que no haya margen negativo */
+    padding: 0.5em 0; /* Agregar espacio interno */
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow-wrap: break-word; /* Permitir que el texto se ajuste si es muy largo */
+    line-height: 1.2; /* Controlar el espacio vertical entre líneas */
+}
+
+/* Ajuste para pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 4rem; /* Reducir tamaño en pantallas medianas */
+        padding: 1em 0; /* Agregar más espacio para evitar recortes */
+    }
+}
+
+/* Ajuste para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 3rem; /* Reducir más para pantallas pequeñas */
+        padding: 1.5em 0; /* Espacio adicional en móviles */
+    }
+}
+
+
+/* Estilo para el cambio rápido de palabras */
+@keyframes wordChange {
+    0% { content: "SALUD"; }
+    25% { content: "FRESCURA"; }
+    50% { content: "SABOR"; }
+    75% { content: "BIENESTAR"; }
+    100% { content: "NUTRICIÓN"; }
+    125% { content: "ENERGÍA"; }
+    150% { content: "VITALIDAD"; }
+    175% { content: "NATURAL"; }
+    200% { content: "CUIDAR DE TI"; }
+    225% { content: "BRINDAR"; }
+    250% { content: "SATISFACER"; }
+}
+
+/* Estilo para el asterisco */
+.asterisco {
+    color: #acfc51;
+    font-size: 5rem;  /* Aumento del tamaño de la letra */
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation: endBlink 4s ease-in-out 4 forwards, stayGreen 0.5s forwards; /* El asterisco se queda fijo */
+}
+
+@keyframes stayGreen {
+    100% {
+        color: #acfc51; /* Se mantiene en verde */
+    }
+}
+
+.hero-text span {
+    display: inline-block;
+    animation: typing 0.5s steps(6) 0s infinite, quickChange 0.5s steps(6) 4s forwards; /* Cambiar un poco más despacio */
+}
+
+/* Animación de "CUIDAR DE TI" */
+@keyframes blinkGreen {
+    0% {
+        color: #fff;
+    }
+    25% {
+        color: #acfc51; /* verde */
+    }
+    50% {
+        color: #fff;
+    }
+    75% {
+        color: #acfc51; /* verde */
+    }
+    100% {
+        color: #acfc51; /* verde */
+    }
+}
+
+.hero-text span#final-word {
+    animation: blinkGreen 4s ease-in-out 1 forwards; /* Hace parpadear "CUIDAR DE TI" 4 veces */
+}
+
+.solution-text {
+    display: none; /* Inicialmente oculta */
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+    opacity: 0; /* Invisible inicialmente */
+    animation: slideSolution 1s ease-out forwards;
+  }
+  
+  @keyframes slideSolution {
+    from {
+      transform: translateY(-20px); /* Desliza desde arriba */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* Se queda en su lugar */
+      opacity: 1;
+    }
+  }
+
+  /* Estilos básicos para el texto */
+/* Contenedor con fondo negro para los títulos */
+.title-container {
+    background-color: black; /* Fondo negro */
+    padding: 15px 30px; /* Espaciado alrededor del texto */
+    display: inline-block; /* Para que el tamaño se ajuste al contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Estilo de gradiente para los títulos */
+.text-gradient {
+    font-size: 3em; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    background: linear-gradient(45deg, #32cd32, #ffeb3b, #1e90ff); /* Gradiente de verde, amarillo y azul */
+    background-size: 400% 400%; /* Define el tamaño del gradiente para el movimiento */
+    -webkit-background-clip: text; /* Aplica el gradiente solo al texto en navegadores basados en WebKit */
+    background-clip: text; /* Aplica el gradiente solo al texto */
+    color: transparent; /* Hace que el color base sea transparente */
+    display: inline; /* Asegura que el texto se muestre correctamente */
+    animation: gradient-animation 5s ease infinite; /* Animación del gradiente */
+}
+
+/* Definir la animación */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Línea decorativa con gradiente */
+/* Línea decorativa con gradiente */
+.decorative-line {
+    height: 210px; /* Altura de la línea */
+  
+    background-color: black; /* Color de fondo negro */
+    margin: 30px 0; /* Espaciado superior e inferior */
+    position: relative; /* Necesario para crear el efecto de gradiente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+    display: flex;
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    align-items: center; /* Centrar la imagen verticalmente */
+}
+
+/* Borde con gradiente en los bordes */
+.decorative-line::before {
+    content: ''; /* Necesario para generar el pseudo-elemento */
+    position: absolute;
+    top: -5px; /* Ajustar para que el gradiente esté fuera de la línea */
+    left: -5px; 
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #32cd32, #ffeb3b, #1e90ff); /* Gradiente verde, amarillo, azul */
+    border-radius: 10px; /* Bordes redondeados para el gradiente */
+    z-index: -1; /* Poner detrás del contenido */
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    width: 45px; /* Ancho del contenedor de la imagen */
+    height: 45px; /* Alto del contenedor de la imagen */
+    overflow: hidden; /* Para que la imagen no se salga del contenedor */
+    display: flex;
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    align-items: center; /* Centrar la imagen verticalmente */
+}
+
+.image-container img {
+    width: 100%; /* Hacer que la imagen ocupe todo el contenedor */
+    height: 100%; /* Asegurarse de que la imagen ocupe todo el contenedor */
+    object-fit: cover; /* Ajustar la imagen sin distorsionarla */
+}
+
+
+
+.contact {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para contraste */
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.contact p {
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-right: 20PX;
+}
+
+label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+button.cta-button {
+    background-color: #ff5a36;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button.cta-button:hover {
+    background-color: #e14d2d;
+}
+
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Separación del contenido */
+}
+
+footer .social-media a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+footer .social-media a:hover {
+    color: #ff5a36;
+}
+

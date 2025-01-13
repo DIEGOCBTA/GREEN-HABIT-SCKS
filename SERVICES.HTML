@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link rel="icon" href="image-removebg-preview (4).ico" type="image/x-icon">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la Empresa - Servicios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="SCRIPT.JS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="responsive.css">
+
+    <style>
+        /* Estilos para el video de fondo */
+        .services {
+            position: relative;
+            text-align: center;
+            padding: 50px 20px;
+            background-size: 400% 400%;
+            color: white;
+        }
+    
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+    
+        .content {
+            width: 90%;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(74, 124, 42, 0.7);
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+    
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-image: linear-gradient(to right, #8adf8c, #968e47, #c4890b);
+            transition: transform 0.3s ease;
+        }
+    
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+    
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+    
+        .service-description, .benefits p, .relief p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.5;
+        }
+    
+        .service-item img {
+            width: 120px;
+            height: 100px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        /* Estilo para la sección de promoción */
+        .promocion-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            background: linear-gradient(to right, #f1e897, #86e789, #123444);
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .promocion-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .promocion-frame {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid #fff;
+            z-index: -1;
+        }
+
+        /* Medios de comunicación responsivos */
+        @media (max-width: 768px) {
+           
+
+            .header, .logo img {
+                max-width: 100%;
+            }
+
+       
+
+        @media (max-width: 480px) {
+            .service-title {
+                font-size: 1.1rem;
+            }
+
+            .service-description, .benefits p, .relief p {
+                font-size: 0.95rem;
+            }
+        }
+    }
+    .menu-button {
+    
+    color: white; /* Color de texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos base del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+   
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-list {
+    display: none; /* Ocultar menú por defecto en pantallas pequeñas */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #152511;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+
+}
+
+.nav-list li {
+    margin: 10px 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+}
+
+.profile img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Estilo del botón hamburguesa */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Adaptación para pantallas grandes */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Ocultar botón hamburguesa */
+    }
+    .nav-list {
+        display: flex; /* Mostrar menú horizontal en pantallas grandes */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+    }
+    .nav-list li {
+        margin: 0 10px;
+    }
+}
+
+
+img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el tamaño de su contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo alineado a la izquierda -->
+        <div class="logo">
+            <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+        </div>
+    
+        <!-- Botón del menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- Tres rayitas -->
+        </div>
+        
+        <!-- Lista del menú (opciones) -->
+        <ul class="nav-list" id="nav-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="#" id="translate-button">Traducir</a></li>
+        </ul>
+    
+        <!-- Imagen de perfil alineada a la derecha -->
+        <div class="profile">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3VpbWk5eHQ1M3lhdmM4bmYycWwxb3c1cTg4OWhiZWN0eTh4ZXYxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NjM3710BYY2Btttu2d/giphy.gif" alt="Imagen de perfil">
+        </div>
+    </header>
+    
+    
+    <main>
+        <section class="services">
+            <video autoplay muted loop class="background-video">
+                <source src="https://i.imgur.com/MCv1h39.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+                <h1 class="text-gradient">Nuestros Servicios</h1>
+                <p class="intro-text">Ofrecemos una variedad de snacks saludables, ideales para cualquier ocasión. Desde opciones veganas hasta productos sin gluten, tenemos algo para todos.</p>
+    
+                <div class="service-item">
+                    <h2 class="service-title">Producto o servicio que satisface</h2>
+                    <p class="service-description">Ofrece un snack que satisface la ansiedad por estar comiendo comida chatarra. Dando opción a nuestros clientes de optar por snacks que cuidan de su salud.</p>
+                </div>
+    
+                <div class="service-item">
+                    <h2 class="service-title">Beneficios</h2>
+                    <div class="benefits">
+                        <p>Ayuda a mantener el cuidado de su salud al disfrutar deliciosos snacks ricos en nutrientes, auténticos, tradicionales y fáciles de consumir y llevar en cualquier momento.</p>
+                    </div>
+                </div>
+    
+                <div class="service-item">
+                    <h2 class="service-title">Molestias que alivia</h2>
+                    <div class="relief">
+                        <p>Si buscas una opción de snacks no procesados, saludables y deliciosos a la vez, nosotros somos la solución.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.getElementById('nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a'); // Seleccionar los enlaces del menú
+    
+        // Función para manejar el menú dependiendo del tamaño de la pantalla
+        const handleMenuDisplay = () => {
+            if (window.innerWidth >= 768) {
+                navList.style.display = 'flex'; // Mostrar menú en pantallas grandes
+            } else {
+                navList.style.display = 'none'; // Ocultar menú en pantallas pequeñas
+            }
+        };
+    
+        // Inicializar el estado del menú al cargar la página
+        handleMenuDisplay();
+    
+        // Mostrar/ocultar menú al hacer clic en el botón hamburguesa
+        hamburger.addEventListener('click', () => {
+            const isMenuVisible = navList.style.display === 'flex';
+            navList.style.display = isMenuVisible ? 'none' : 'flex';
+        });
+    
+        // Cerrar menú al redimensionar pantalla
+        window.addEventListener('resize', handleMenuDisplay);
+    });
+    
+    </script>
+    <footer>
+        <p>&copy; 2025 GREEN HABIT. Todos los derechos reservados.</p>
+        <p>Publicado por Diego Ruiz</p>
+        <div class="social-media">
+            <center>
+      <a href="https://www.facebook.com" target="_blank">
+          <img src="https://i.imgur.com/98Z0T1I.png" alt="Facebook" width="24" height="24">
+      </a>
+      <a href="https://www.instagram.com/_.greenhabit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="24" height="24">
+      </a>
+      
+      </center>
+          </div>
+    <div class="logo">
+        <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+    </div>
+    </footer>
+</body>
+</html>

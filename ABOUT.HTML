@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link rel="icon" href="image-removebg-preview (4).ico" type=image/x-icon>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Empresa de Chips Saludables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+
+ 
+
+   
+
+</head>
+<body>
+    <header>
+        <!-- Logo alineado a la izquierda -->
+        <div class="logo">
+            <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+        </div>
+    
+        <!-- Botón del menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- Tres rayitas -->
+        </div>
+        
+        <!-- Lista del menú (opciones) -->
+        <ul class="nav-list" id="nav-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="#" id="translate-button">Traducir</a></li>
+        </ul>
+    
+        <!-- Imagen de perfil alineada a la derecha -->
+        <div class="profile">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3VpbWk5eHQ1M3lhdmM4bmYycWwxb3c1cTg4OWhiZWN0eTh4ZXYxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NjM3710BYY2Btttu2d/giphy.gif" alt="Imagen de perfil">
+        </div>
+    </header>
+    
+    <!-- Contenedor para Google Translate (visible) -->
+<center> <div id="google_translate_element"></div></center>
+    
+    <!-- Script de Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es', // Idioma original de la página
+                includedLanguages: 'en,es', // Idiomas disponibles para traducir
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    
+        // Cargar el script de Google Translate solo cuando el botón "Traducir" es presionado
+        document.getElementById('translate-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+            var script = document.createElement('script');
+            script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+            document.head.appendChild(script);
+        });
+    </script>
+    
+    
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Nos distinguimos por <span id="changing-word">Salud</span></h1>
+            </div>
+            <div class="solution-text">NOSOTROS SOMOS LA SOLUCIÓN</div>
+        </section>
+        
+        <section class="about">
+            <!-- Encabezado principal con imagen de fondo -->
+            <BR>
+                <BR>
+                    <BR> 
+                        <div class="decorative-line">
+                            <div class="image-spot">
+                                <img src="https://i.imgur.com/H9XgZzX.png" alt="Image" />
+                            </div>
+                        </div>
+                     
+                                       
+            <div class="hero" style="background-image: url('fondo-empresa.jpg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px;">
+                <div class="title-container">
+                    <h1 class="text-gradient">¿Quiénes Somos?</h1>
+                </div>
+                <p style="font-size: 35px; max-width: 800px; margin: auto;">Redefinimos el concepto de snacks saludables, ofreciendo opciones que combinan innovación, calidad y bienestar. Transformamos hábitos alimenticios en experiencias que marcan la diferencia.</p>
+            </div>
+        
+          
+          
+            <div style="display: flex; align-items: center; padding: 50px 20px;">
+                <!-- Misión -->
+                <div style="flex: 1; padding: 20px; border-right: 2px solid #0b380b;">
+                    <div class="title-container">
+                        <h2 class="text-gradient" style="font-size: 2em; margin-bottom: 20px;">Misión</h2>
+                    </div>
+                    <p style="font-size: 1.1em; line-height: 1.6; text-align: left;">
+                        Nuestra misión como empresa es compartir con cada uno de nuestros clientes la pasión y compromiso que tenemos sobre nuestro producto, transmitiendo e inculcando respeto hacia el cuidado de sí mismo. Buscando la satisfacción de las necesidades individuales de nuestros clientes que se encuentran en búsqueda de una alternativa que inculque un hábito saludable y ayuden a disfrutar este proceso a través de un rico snack. 
+                    </p>
+                </div>
+            
+                <!-- Visión -->
+                <div style="flex: 1; padding: 20px; text-align: right;">
+                    <div class="title-container">
+                        <h2 class="text-gradient" style="font-size: 2em; text-align: right;">Visión</h2>
+                    </div>
+                    <p style="font-size: 1.1em; line-height: 1.6; text-align: right;">
+                        Ser una empresa reconocida a nivel nacional por nuestra calidad de productos saludables e innovadores en el mercado, promoviendo el respeto en el ambiente laboral al ser un lugar sano donde se promueva la creatividad, donde se gratifiquen las ideas y el esfuerzo de los trabajadores. Cumpliendo con la satisfacción del cliente al contar con un servicio y productos que cumplen con los estándares saludables, haciendo de un snack rico en sabor y beneficioso para la salud.
+                    </p>
+                </div>
+            </div>
+            
+                <!-- Valores -->
+                <div class="section" style="padding: 50px 20px; text-align: center;">
+                    <div class="title-container">
+                        <h2 class="text-gradient" style="font-size: 2em; margin-bottom: 20px;">Valores</h2>
+                    </div>
+                    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                        <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                            En nuestra empresa de snacks saludables, hemos identificado un conjunto de valores nucleares que son esenciales para nuestro crecimiento y éxito. Estos valores,  son pilares fundamentales que guiarán cada una de nuestras acciones.
+                        </p>
+            
+                        
+                                    <!-- Lista de valores en contenedores flexibles -->
+                                    <ul style="font-size: 1.1em; line-height: 1.6; padding-left: 0; list-style-type: none; text-align: center; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap;">
+                                        <li style="margin-bottom: 10px; flex: 1 1 200px; padding: 20px; text-align: center; border: 1px solid #ccc; border-radius: 8px; margin: 10px;">
+                                            <strong>Responsabilidad Social</strong>: <br> Un impacto positivo en la comunidad.
+                                        </li>
+                                        <li style="margin-bottom: 10px; flex: 1 1 200px; padding: 20px; text-align: center; border: 1px solid #ccc; border-radius: 8px; margin: 10px;">
+                                            <strong>Integridad</strong>: <br> Actuamos con honestidad, ante todo.
+                                        </li>
+                                        <li style="margin-bottom: 10px; flex: 1 1 200px; padding: 20px; text-align: center; border: 1px solid #ccc; border-radius: 8px; margin: 10px;">
+                                            <strong>Respeto</strong>: <br> Valoramos a cada persona.
+                                        </li>
+                                        <li style="margin-bottom: 10px; flex: 1 1 200px; padding: 20px; text-align: center; border: 1px solid #ccc; border-radius: 8px; margin: 10px;">
+                                            <strong>Honestidad y Transparencia</strong>: <br> Compartimos abiertamente información sobre nuestros productos y procesos, para que nuestros clientes puedan tomar decisiones informadas.
+                                        </li>
+                                        <li style="margin-bottom: 10px; flex: 1 1 200px; padding: 20px; text-align: center; border: 1px solid #ccc; border-radius: 8px; margin: 10px;">
+                                            <strong>Amabilidad</strong>: <br> Fomentamos un ambiente cálido y acogedor, donde cada cliente se siente valorado y respetado, creando así una buena experiencia de compra.
+
+
+
+
+
+
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <BR>
+                        
+                    </div>
+
+                </div>
+            </div>
+            
+        
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GREEN HABIT. Todos los derechos reservados.</p>
+        <p>Publicado por Diego Ruiz</p>
+        <div class="social-media">
+            <center>
+      <a href="https://www.facebook.com" target="_blank">
+          <img src="https://i.imgur.com/98Z0T1I.png" alt="Facebook" width="24" height="24">
+      </a>
+      <a href="https://www.instagram.com/_.greenhabit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="24" height="24">
+      </a>
+      
+      </center>
+          </div>
+        <div class="logo">
+            <img src="https://i.imgur.com/H9XgZzX.png" alt="Logo de la Empresa">
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
